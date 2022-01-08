@@ -59,6 +59,12 @@ export default function GroupScreen({ navigation }: any) {
                   <Text color="coolGray.600">{item.note}</Text>
                 </VStack>
                 <Spacer />
+                <VStack>
+                  <Text color="coolGray.800" bold>
+                    Status
+                  </Text>
+                  <Text color="coolGray.600">time out</Text>
+                </VStack>
               </HStack>
             </Box>
           </Pressable>
