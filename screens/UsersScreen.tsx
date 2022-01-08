@@ -21,9 +21,6 @@ export default function UsersScreen() {
         renderItem={({ item }) => (
           <Box
             borderBottomWidth="1"
-            _dark={{
-              borderColor: "gray.600",
-            }}
             borderColor="coolGray.200"
             pl="4"
             pr="5"
@@ -37,33 +34,14 @@ export default function UsersScreen() {
                 }}
               />
               <VStack>
-                <Text
-                  _dark={{
-                    color: "warmGray.50",
-                  }}
-                  color="coolGray.800"
-                  bold
-                >
+                <Text color="coolGray.800" bold>
                   {item.fullName}
                 </Text>
-                <Text
-                  color="coolGray.600"
-                  _dark={{
-                    color: "warmGray.200",
-                  }}
-                >
-                  {item.note}
-                </Text>
+                <Text color="coolGray.600">{item.note}</Text>
               </VStack>
               <Spacer />
-              <Text
-                fontSize="xs"
-                _dark={{
-                  color: "warmGray.50",
-                }}
-                color="coolGray.800"
-                alignSelf="flex-start"
-              >info
+              <Text fontSize="xs" color="coolGray.800" alignSelf="flex-start">
+                info
                 {/* {item.timeStamp} */}
               </Text>
             </HStack>
