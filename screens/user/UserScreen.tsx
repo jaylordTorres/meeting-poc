@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, VStack, Text, Heading, Divider } from "native-base";
-import { users } from "../data/users";
+import { users } from "../../data/users";
 
 const user = users[0];
 

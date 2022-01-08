@@ -10,8 +10,8 @@ import {
   Text,
   Spacer,
 } from "native-base";
-import { users } from "../data/users";
-import { View } from "../components/Themed";
+import { users } from "../../data/users";
+import { View } from "../../components/Themed";
 
 export default function UsersScreen() {
   return (
