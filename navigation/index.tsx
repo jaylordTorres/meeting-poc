@@ -19,7 +19,9 @@ import useColorScheme from "../hooks/useColorScheme";
 import GroupFormScreen from "../screens/group/component/GroupForm";
 import GroupAddMemberModal from "../screens/group/GroupAddMemberModal";
 import GroupFromCreateScreen from "../screens/group/GroupFromCreateScreen";
-import { groupFromUpdateScreenNavigationOptions } from "../screens/group/GroupFromUpdateScreen";
+import GroupFromUpdateScreen, {
+  groupFromUpdateScreenNavigationOptions,
+} from "../screens/group/GroupFromUpdateScreen";
 import GroupScreen, {
   GroupScreenNavigationOptions,
 } from "../screens/group/GroupScreen";
@@ -80,7 +82,7 @@ function RootNavigator() {
       />
       <Stack.Screen
         name="GroupUpdate"
-        component={GroupFromCreateScreen}
+        component={GroupFromUpdateScreen}
         options={groupFromUpdateScreenNavigationOptions}
       />
       <Stack.Screen
