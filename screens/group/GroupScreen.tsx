@@ -1,5 +1,7 @@
 import React from "react";
 import { Avatar, VStack, Text, Heading, Divider } from "native-base";
+import { FontAwesome } from "@expo/vector-icons";
+import { Pressable } from "react-native";
 
 export default function GroupScreen() {
   return (
@@ -17,3 +19,12 @@ export default function GroupScreen() {
     </VStack>
   );
 }
+
+export const GroupScreenNavigationOptions = ({ navigation }: any) => ({
+  title: "Group",
+  headerRight: () => (
+    <Pressable onPress={() => navigation.navigate("GroupUpdate")}>
+      <FontAwesome name="edit" size={25} style={{ marginRight: 15 }} />
+    </Pressable>
+  ),
+});

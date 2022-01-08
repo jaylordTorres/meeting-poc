@@ -22,6 +22,7 @@ export type RootStackParamList = {
   NotFound: undefined;
   User: undefined;
   Users: undefined;
+  Group: undefined;
   Groups: undefined;
   GroupCreate: undefined;
   GroupUpdate: undefined;

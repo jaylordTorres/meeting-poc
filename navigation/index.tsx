@@ -20,6 +20,9 @@ import GroupFormScreen from "../screens/group/component/GroupForm";
 import GroupAddMemberModal from "../screens/group/GroupAddMemberModal";
 import GroupFromCreateScreen from "../screens/group/GroupFromCreateScreen";
 import { groupFromUpdateScreenNavigationOptions } from "../screens/group/GroupFromUpdateScreen";
+import GroupScreen, {
+  GroupScreenNavigationOptions,
+} from "../screens/group/GroupScreen";
 import GroupsScreen, {
   groupsScreenNavigationOptions,
 } from "../screens/group/GroupsScreen";
@@ -64,6 +67,11 @@ function RootNavigator() {
         name="Groups"
         component={GroupsScreen}
         options={groupsScreenNavigationOptions}
+      />
+      <Stack.Screen
+        name="Group"
+        component={GroupScreen}
+        options={GroupScreenNavigationOptions}
       />
       <Stack.Screen
         name="GroupCreate"
