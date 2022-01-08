@@ -16,6 +16,9 @@ import { ColorSchemeName, Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
+import GroupFormScreen from "../screens/group/component/GroupForm";
+import GroupFromCreateScreen from "../screens/group/GroupFromCreateScreen";
+import GroupsScreen from "../screens/group/GroupsScreen";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
@@ -53,6 +56,37 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Groups"
+        component={GroupsScreen}
+        options={({ navigation }) => ({
+          title: "Groups",
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate("GroupCreate")}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1,
+              })}
+            >
+              <FontAwesome
+                name="info-circle"
+                size={25}
+                style={{ marginRight: 15 }}
+              />
+            </Pressable>
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="GroupCreate"
+        component={GroupFromCreateScreen}
+        options={{ title: "Create Group" }}
+      />
+      <Stack.Screen
+        name="GroupUpdate"
+        component={GroupFromCreateScreen}
+        options={{ title: "Update Group" }}
+      />
       <Stack.Screen
         name="User"
         component={UserScreen}
