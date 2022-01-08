@@ -21,6 +21,7 @@ import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import UserScreen from "../screens/UserScreen";
+import UsersScreen from "../screens/UsersScreen";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -53,9 +54,14 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="Users"
+        component={UsersScreen}
+        options={{ title: "Users" }}
+      />
+      <Stack.Screen
         name="User"
         component={UserScreen}
-        options={{ title: "Users" }}
+        options={{ title: "User" }}
       />
       <Stack.Screen
         name="Root"
