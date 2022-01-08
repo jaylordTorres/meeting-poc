@@ -20,7 +20,6 @@ export default function GroupScreen({ navigation }: any) {
       <VStack space={1} alignItems="center">
         <Avatar size="200px" />
         <Heading textAlign="center">Group name</Heading>
-        <Text fontSize="md">Group info</Text>
         <Divider />
         <Text fontSize="md" mb="20">
           Note
@@ -60,13 +59,6 @@ export default function GroupScreen({ navigation }: any) {
                   <Text color="coolGray.600">{item.note}</Text>
                 </VStack>
                 <Spacer />
-                <Pressable
-                  onPress={() => {
-                    alert("press remove user");
-                  }}
-                >
-                  <Ionicons name="remove" size={25} />
-                </Pressable>
               </HStack>
             </Box>
           </Pressable>
@@ -81,7 +73,7 @@ export const GroupScreenNavigationOptions = ({ navigation }: any) => ({
   title: "Group",
   headerRight: () => (
     <Pressable onPress={() => navigation.navigate("GroupUpdate")}>
-      <FontAwesome name="edit" size={25} style={{ marginRight: 15 }} />
+      <FontAwesome name="edit" size={25} />
     </Pressable>
   ),
 });

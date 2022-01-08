@@ -57,13 +57,8 @@ export default function GroupsScreen({ navigation }: any) {
 export const groupsScreenNavigationOptions = ({ navigation }: any) => ({
   title: "Groups",
   headerRight: () => (
-    <Pressable
-      onPress={() => navigation.navigate("GroupCreate")}
-      style={({ pressed }) => ({
-        opacity: pressed ? 0.5 : 1,
-      })}
-    >
-      <MaterialIcons name="create" size={25} style={{ marginRight: 15 }} />
+    <Pressable onPress={() => navigation.navigate("GroupCreate")}>
+      <MaterialIcons name="create" size={25} />
     </Pressable>
   ),
 });
