@@ -13,13 +13,14 @@ import {
 import { users } from "../../data/users";
 import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import Info from "../../components/Info";
 
 const user = users[0];
 
 export default function UserScreen({ navigation }: any) {
   return (
     <VStack space={1} mt={3}>
-      <VStack space={1} mb="5" alignItems="center">
+      <VStack space={2} mb="5" alignItems="center" m="4">
         <Avatar
           size="150px"
           source={{
@@ -27,8 +28,11 @@ export default function UserScreen({ navigation }: any) {
           }}
         />
         <Heading textAlign="center">{user.fullName}</Heading>
-        <Text fontSize="md">{user.address}</Text>
-        <Text fontSize="md">{user.note}</Text>
+        <Info title="Status" info="Single" />
+        <Info title="Tags" info="Handsome, Straightx" />
+        <Info title="Check-in" info="1:00AM" />
+        <Info title="Check-out" info="3:00PM" />
+        <Info title="Has Equipment" info="no" />
       </VStack>
       <Divider />
       <FlatList
