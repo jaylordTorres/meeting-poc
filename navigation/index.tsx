@@ -17,8 +17,12 @@ import { ColorSchemeName, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import GroupFormScreen from "../screens/group/component/GroupForm";
+import GroupAddMemberModal from "../screens/group/GroupAddMemberModal";
 import GroupFromCreateScreen from "../screens/group/GroupFromCreateScreen";
-import GroupsScreen from "../screens/group/GroupsScreen";
+import { groupFromUpdateScreenNavigationOptions } from "../screens/group/GroupFromUpdateScreen";
+import GroupsScreen, {
+  groupsScreenNavigationOptions,
+} from "../screens/group/GroupsScreen";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
@@ -59,23 +63,7 @@ function RootNavigator() {
       <Stack.Screen
         name="Groups"
         component={GroupsScreen}
-        options={({ navigation }) => ({
-          title: "Groups",
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("GroupCreate")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
+        options={groupsScreenNavigationOptions}
       />
       <Stack.Screen
         name="GroupCreate"
@@ -85,7 +73,7 @@ function RootNavigator() {
       <Stack.Screen
         name="GroupUpdate"
         component={GroupFromCreateScreen}
-        options={{ title: "Update Group" }}
+        options={groupFromUpdateScreenNavigationOptions}
       />
       <Stack.Screen
         name="User"
@@ -109,6 +97,11 @@ function RootNavigator() {
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen
+          name="GroupAddMember"
+          component={GroupAddMemberModal}
+          options={{ title: "Add Members" }}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );

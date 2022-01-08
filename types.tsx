@@ -25,6 +25,7 @@ export type RootStackParamList = {
   Groups: undefined;
   GroupCreate: undefined;
   GroupUpdate: undefined;
+  GroupAddMember: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
