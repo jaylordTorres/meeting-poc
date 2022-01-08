@@ -54,14 +54,14 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="User"
+        component={UserScreen}
+        options={{ title: "User Profile" }}
+      />
+      <Stack.Screen
         name="Users"
         component={UsersScreen}
         options={{ title: "Users" }}
-      />
-      <Stack.Screen
-        name="User"
-        component={UserScreen}
-        options={{ title: "User" }}
       />
       <Stack.Screen
         name="Root"
