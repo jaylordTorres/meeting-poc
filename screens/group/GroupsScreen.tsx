@@ -29,6 +29,7 @@ export default function GroupsScreen({ navigation }: any) {
           >
             <HStack space={3} justifyContent="space-between">
               <Avatar
+                rounded={"sm"}
                 size="48px"
                 source={{
                   uri: item.avatarUrl,
