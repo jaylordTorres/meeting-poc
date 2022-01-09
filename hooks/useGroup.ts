@@ -2,6 +2,6 @@ import { useContext } from "react";
 import { GroupContext } from "../store/constant";
 
 export function useGroup() {
-  const { groups, setGroup } = useContext<any>(GroupContext);
-  return { groups, setGroup };
+  const { value, setter } = useContext<any>(GroupContext);
+  return { groups: value, setGroup: setter };
 }

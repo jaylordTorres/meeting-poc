@@ -2,5 +2,6 @@ import { useContext } from "react";
 import { UserContext } from "../store/constant";
 
 export function useUser(): any {
-  return useContext(UserContext);
+  const { value, setter } = useContext<any>(UserContext);
+  return { users: value, setUser: setter };
 }

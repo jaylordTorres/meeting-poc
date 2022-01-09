@@ -12,9 +12,11 @@ import {
 } from "native-base";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
-import { users } from "../../data/users";
+import { useUser } from "../../hooks/useUser";
+import { toArray } from "../../util/object";
 
 export default function GroupScreen({ navigation }: any) {
+  const { users } = useUser();
   return (
     <VStack space={1} m="2">
       <VStack space={1} alignItems="center">
@@ -31,7 +33,7 @@ export default function GroupScreen({ navigation }: any) {
         Members
       </Heading>
       <FlatList
-        data={users}
+        data={toArray(users)}
         renderItem={({ item }) => (
           <Pressable
             onPress={() => {

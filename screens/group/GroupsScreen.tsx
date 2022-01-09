@@ -13,10 +13,7 @@ import {
 import { Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useGroup } from "../../hooks/useGroup";
-
-function toArray(o: any) {
-  return Object.keys(o).map((i) => o[i]);
-}
+import { toArray } from "../../util/object";
 
 export default function GroupsScreen({ navigation }: any) {
   const { groups } = useGroup();
