@@ -21,7 +21,9 @@ export default function GroupsScreen({ navigation }: any) {
     <FlatList
       data={toArray(groups)}
       renderItem={({ item }) => (
-        <Pressable onPress={() => navigation.navigate("Group")}>
+        <Pressable
+          onPress={() => navigation.navigate("Group", { id: item.id })}
+        >
           <Box
             borderBottomWidth="1"
             borderColor="coolGray.200"

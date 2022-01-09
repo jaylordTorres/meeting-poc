@@ -3,23 +3,27 @@ import {
   Avatar,
   VStack,
   Text,
-  Heading,
-  Divider,
   FlatList,
   Box,
   HStack,
   Spacer,
-  Button,
 } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
 import { useUser } from "../../hooks/useUser";
+import { useGroupMembers } from "../../hooks";
+import { toArray } from "../../util/object";
 
-export default function GroupAddMemberModal() {
+export default function GroupAddMemberModal({ route }: any) {
+  const groupId = route.params.id;
   const { users } = useUser();
+  const { members, addMember } = useGroupMembers(groupId);
+
   return (
     <FlatList
-      data={users}
+      data={toArray(users).filter(
+        (u) => !members.find((m: any) => m.userId === u.id)
+      )}
       renderItem={({ item }: any) => (
         <Box
           borderBottomWidth="1"
@@ -42,17 +46,13 @@ export default function GroupAddMemberModal() {
               <Text color="coolGray.600">{item.note}</Text>
             </VStack>
             <Spacer />
-            <Pressable
-              onPress={() => {
-                alert("sample");
-              }}
-            >
+            <Pressable onPress={() => addMember(groupId, item.id)}>
               <Ionicons name="add" size={25} />
             </Pressable>
           </HStack>
         </Box>
       )}
-      keyExtractor={(item) => item.id}
+      keyExtractor={(item: any) => item.id}
     />
   );
 }

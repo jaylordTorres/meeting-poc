@@ -8,12 +8,17 @@ export default function GroupFromUpdateScreen({ ...props }) {
 }
 
 export const groupFromUpdateScreenNavigationOptions = ({
+  route,
   navigation,
 }: any) => ({
   title: "Update Group",
   headerRight: () => (
-    <Pressable onPress={() => navigation.navigate("GroupAddMember")}>
-      <AntDesign name="adduser" size={25} style={{ marginRight: 15 }} />
+    <Pressable
+      onPress={() =>
+        navigation.navigate("GroupAddMember", { id: route.params.id })
+      }
+    >
+      <AntDesign name="adduser" size={25} />
     </Pressable>
   ),
 });
