@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { toArray } from "../util/object";
 import { useUserGroup } from "./useUserGroup";
 
-export function useGroupMembers(id: string) {
+export function useGroupMembers(id: string, userId?: string) {
   const { userGroup, setUserGroup } = useUserGroup();
 
   const addMember = useCallback((groupId, userId, data = {}) => {
@@ -35,5 +35,8 @@ export function useGroupMembers(id: string) {
     addMember,
     removeMember,
     members: toArray(userGroup).filter((i: any) => i.groupId === id),
+    joined: userId
+      ? toArray(userGroup).filter((i: any) => i.userId === userId)
+      : [],
   };
 }

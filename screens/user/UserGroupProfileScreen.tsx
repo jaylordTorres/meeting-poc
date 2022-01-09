@@ -14,12 +14,13 @@ import {
 import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Info from "../../components/Info";
-import { useGroup, useUser } from "../../hooks";
+import { useGroup, useGroupMembers, useUser, useUserGroup } from "../../hooks";
 
 export default function UserGroupProfileScreen({ navigation, route }: any) {
   const { groupId, userId } = route.params;
   const { users } = useUser();
   const { groups } = useGroup();
+  const { joined } = useGroupMembers(groupId, userId);
   const user = users[userId];
   const group = groups[groupId];
 
@@ -49,29 +50,39 @@ export default function UserGroupProfileScreen({ navigation, route }: any) {
       <Heading>Groups</Heading>
 
       <FlatList
-        data={users}
-        renderItem={({ item }) => (
-          <Pressable onPress={() => navigation.navigate("Group")}>
-            <Box borderBottomWidth="1" borderColor="coolGray.200" py="2">
-              <HStack space={3} justifyContent="space-between">
-                <Avatar
-                  size="48px"
-                  rounded="sm"
-                  source={{
-                    uri: item.avatarUrl,
-                  }}
-                />
-                <VStack>
-                  <Text color="coolGray.800" bold>
-                    {item.fullName}
-                  </Text>
-                  <Text color="coolGray.600">{item.note}</Text>
-                </VStack>
-                <Spacer />
-              </HStack>
-            </Box>
-          </Pressable>
-        )}
+        data={joined}
+        renderItem={({ item }) => {
+          const group = groups[item.groupId];
+          return (
+            <Pressable
+              onPress={() =>
+                navigation.navigate("Group", {
+                  id: item.groupId,
+                  groupId: item.groupId,
+                })
+              }
+            >
+              <Box borderBottomWidth="1" borderColor="coolGray.200" py="2">
+                <HStack space={3} justifyContent="space-between">
+                  <Avatar
+                    size="48px"
+                    rounded="sm"
+                    // source={{
+                    //   uri: group.avatarUrl,
+                    // }}
+                  />
+                  <VStack>
+                    <Text color="coolGray.800" bold>
+                      {group.name}
+                    </Text>
+                    <Text color="coolGray.600">{group.description}</Text>
+                  </VStack>
+                  <Spacer />
+                </HStack>
+              </Box>
+            </Pressable>
+          );
+        }}
         keyExtractor={(item) => item.id}
       />
     </VStack>
