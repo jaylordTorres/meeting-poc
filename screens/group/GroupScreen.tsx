@@ -23,8 +23,8 @@ export default function GroupScreen({ navigation, route }: any) {
 
   return (
     <VStack space={1} m="2">
-      <VStack space={1} alignItems="center">
-        {/* <Avatar size="20" /> */}
+      <VStack space={1} alignItems="center" mb="8">
+        <Avatar size="20" />
         <Heading textAlign="center">{group.name}</Heading>
         <Text fontSize="md">{group.description}</Text>
       </VStack>

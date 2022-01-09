@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { Avatar, VStack, Input, Button, Text } from "native-base";
+import { Avatar, VStack, Input, Button } from "native-base";
 
 export default function GroupForm({
+  children,
   action,
   onSubmit,
   name: defaultName = "",
@@ -28,6 +29,8 @@ export default function GroupForm({
       <Button onPress={onSave}>
         {action === "update" ? "Update" : "Create"}
       </Button>
+
+      {children}
     </VStack>
   );
 }

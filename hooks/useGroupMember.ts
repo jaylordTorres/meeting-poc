@@ -9,6 +9,7 @@ export function useGroupMembers(id: string) {
     const userGroupId = groupId + "#" + userId;
 
     setUserGroup((items: any) => ({
+      ...items,
       [userGroupId]: {
         id: userGroupId,
         groupId: id,
@@ -16,12 +17,23 @@ export function useGroupMembers(id: string) {
         status: "joined",
         ...data,
       },
-      ...items,
     }));
+  }, []);
+
+  const removeMember = useCallback((groupId, userId) => {
+    const userGroupId = groupId + "#" + userId;
+
+    setUserGroup((items: any) => {
+      delete items[userGroupId];
+      return {
+        ...items,
+      };
+    });
   }, []);
 
   return {
     addMember,
+    removeMember,
     members: toArray(userGroup).filter((i: any) => i.groupId === id),
   };
 }
