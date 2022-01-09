@@ -1,0 +1,20 @@
+This is a 2 screen app I guess.  This isn't a huge priority but do you know about how long it will take to do? I need it done in react native. Expo Proffered (the company I will show uses Expo) and I may charge them
+first screen shows up to 100 workers. let's make fake data. no API, nothing real
+
+Imagine you are at an event and you have 100 workers.
+
+We need to be able to create groups of workers and move the workers into those groups
+
+there should be a way to show the clock in/out code for the shift somewhere
+details of the shift somewhere maybe the clockin/out codes here with start/end times
+filter/search list
+
+Each workers
+	has notes - free type
+	tags - select from : Great Worker, Super Motivated, Unproductive, Left Early, handled tickets, Forklift Driver, Picker, Packer, front gate, good work ethic, optimistic,pessimistic
+	Shows Status - Hasn't Clocked In/Clocked In/ On Break/ Clocked out (Text Only)
+	shows clockin/out times and break times
+	Checkbox for has equipment
+	Call/Text Buttons
+	Picture
+	Name
