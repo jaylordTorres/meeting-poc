@@ -1,9 +1,14 @@
 import React, { useCallback, useState } from "react";
 import { Avatar, VStack, Input, Button, Text } from "native-base";
 
-export default function GroupForm({ action, onSubmit }: any) {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+export default function GroupForm({
+  action,
+  onSubmit,
+  name: defaultName = "",
+  description: defaultDescription = "",
+}: any) {
+  const [name, setName] = useState(defaultName);
+  const [description, setDescription] = useState(defaultDescription);
   const onSave = useCallback(() => {
     onSubmit({ name, description });
   }, [name, description, onSubmit]);
