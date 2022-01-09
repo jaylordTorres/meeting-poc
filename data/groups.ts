@@ -2,7 +2,7 @@ export const groups = [
   {
     id: "bed8245f-d456-4576-9ba1-4cc48b7fa79b",
     name: "The Rolling Stones",
-    note: "sample note 1",
+    description: "sample note 1",
     members_count: 134,
     avatarUrl:
       "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -10,7 +10,7 @@ export const groups = [
   {
     id: "137a5a8b-20c3-42a2-ace0-655f7fb45930",
     name: "Bruce Springsteen",
-    note: "sample note 2",
+    description: "sample note 2",
     members_count: 56,
     avatarUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyEaZqT3fHeNrPGcnjLLX1v_W4mvBlgpwxnA&usqp=CAU",
@@ -18,14 +18,14 @@ export const groups = [
   {
     id: "d9efe108-390b-4f44-8d16-f2b1418f29b5",
     name: "Jackson Browne",
-    note: "sample note 3",
+    description: "sample note 3",
     members_count: 78,
     avatarUrl: "https://miro.medium.com/max/1400/0*0fClPmIScV5pTLoE.jpg",
   },
   {
     id: "857e520c-4749-44d8-9238-b92a3fc8094d",
     name: "Ignition (Remix)",
-    note: "sample note 4",
+    description: "sample note 4",
     members_count: 50,
     avatarUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr01zI37DYuR8bMV5exWQBSw28C1v_71CAh8d7GP1mplcmTgQA6Q66Oo--QedAN1B4E1k&usqp=CAU",

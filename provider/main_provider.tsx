@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { users as usersData } from "../data/users";
+import { groups as groupsData } from "../data/groups";
 import { GroupContext, UserContext } from "../store/constant";
 
 export const MainProvider = ({ children }: any) => {
-  const [groups, setGroup] = useState([]);
+  const [groups, setGroup] = useState(tomap(groupsData));
   const [users, setUsers] = useState(usersData);
 
   return (
@@ -14,3 +15,7 @@ export const MainProvider = ({ children }: any) => {
     </GroupContext.Provider>
   );
 };
+
+function tomap(o: any) {
+  return o.reduce((c: any, n: any) => ({ ...c, [n.id]: n }), {});
+}

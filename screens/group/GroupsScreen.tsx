@@ -12,12 +12,17 @@ import {
 } from "native-base";
 import { Pressable } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-import { groups } from "../../data/groups";
+import { useGroup } from "../../hooks/useGroup";
+
+function toArray(o: any) {
+  return Object.keys(o).map((i) => o[i]);
+}
 
 export default function GroupsScreen({ navigation }: any) {
+  const { groups } = useGroup();
   return (
     <FlatList
-      data={groups}
+      data={toArray(groups)}
       renderItem={({ item }) => (
         <Pressable onPress={() => navigation.navigate("Group")}>
           <Box
@@ -31,15 +36,15 @@ export default function GroupsScreen({ navigation }: any) {
               <Avatar
                 rounded={"sm"}
                 size="48px"
-                source={{
-                  uri: item.avatarUrl,
-                }}
+                // source={{
+                //   uri: item.avatarUrl,
+                // }}
               />
               <VStack>
                 <Text color="coolGray.800" bold>
                   {item.name}
                 </Text>
-                <Text color="coolGray.600">{item.note}</Text>
+                <Text color="coolGray.600">{item.description}</Text>
               </VStack>
               <Spacer />
               <Text fontSize="xs" color="coolGray.800" alignSelf="flex-start">
