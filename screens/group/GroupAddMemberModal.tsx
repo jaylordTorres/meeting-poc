@@ -11,15 +11,16 @@ import {
   Spacer,
   Button,
 } from "native-base";
-import { users } from "../../data/users";
 import { Ionicons } from "@expo/vector-icons";
 import { Pressable } from "react-native";
+import { useUser } from "../../hooks/useUser";
 
 export default function GroupAddMemberModal() {
+  const { users } = useUser();
   return (
     <FlatList
       data={users}
-      renderItem={({ item }) => (
+      renderItem={({ item }: any) => (
         <Box
           borderBottomWidth="1"
           borderColor="coolGray.200"

@@ -5,6 +5,7 @@ import { NativeBaseProvider } from "native-base";
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
+import { MainProvider } from "./provider/main_provider";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -16,7 +17,9 @@ export default function App() {
     return (
       <NativeBaseProvider>
         <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
+          <MainProvider>
+            <Navigation colorScheme={colorScheme} />
+          </MainProvider>
           <StatusBar />
         </SafeAreaProvider>
       </NativeBaseProvider>

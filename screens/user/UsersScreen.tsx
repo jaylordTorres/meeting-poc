@@ -10,15 +10,16 @@ import {
   Text,
   Spacer,
 } from "native-base";
-import { users } from "../../data/users";
 import { View } from "../../components/Themed";
+import { useUser } from "../../hooks/useUser";
 
 export default function UsersScreen() {
+  const { users } = useUser();
   return (
     <View style={styles.container}>
       <FlatList
         data={users}
-        renderItem={({ item }) => (
+        renderItem={({ item }: any) => (
           <Box
             borderBottomWidth="1"
             borderColor="coolGray.200"
