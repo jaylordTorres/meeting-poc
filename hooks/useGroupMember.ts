@@ -31,9 +31,24 @@ export function useGroupMembers(id: string, userId?: string) {
     });
   }, []);
 
+  const updateMember = useCallback((data = {}) => {
+    const userGroupId = id + "#" + userId;
+
+    setUserGroup((items: any) => {
+      return {
+        ...items,
+        [userGroupId]: { ...items[userGroupId], ...data },
+      };
+    });
+  }, []);
+
+  const currentItem = userGroup[id + "#" + userId];
+
   return {
     addMember,
     removeMember,
+    updateMember,
+    currentItem,
     members: toArray(userGroup).filter((i: any) => i.groupId === id),
     joined: userId
       ? toArray(userGroup).filter((i: any) => i.userId === userId)

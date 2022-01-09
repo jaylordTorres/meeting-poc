@@ -64,14 +64,14 @@ export default function GroupScreen({ navigation, route }: any) {
                     <Text color="coolGray.800" bold>
                       {user.fullName}
                     </Text>
-                    <Text color="coolGray.600">{user.note}</Text>
+                    <Text color="coolGray.600">{item.note}</Text>
                   </VStack>
                   <Spacer />
                   <VStack>
                     <Text color="coolGray.800" bold>
                       Status
                     </Text>
-                    <Text color="coolGray.600">time out</Text>
+                    <Text color="coolGray.600">{item.status}</Text>
                   </VStack>
                 </HStack>
               </Box>
