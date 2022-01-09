@@ -32,6 +32,7 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
+import UserGroupProfileScreen from "../screens/user/UserGroupProfileScreen";
 import UserScreen from "../screens/user/UserScreen";
 import UsersScreen from "../screens/user/UsersScreen";
 import {
@@ -70,6 +71,12 @@ function RootNavigator() {
         component={GroupsScreen}
         options={groupsScreenNavigationOptions}
       />
+      <Stack.Screen
+        name="UserGroupProfile"
+        component={UserGroupProfileScreen}
+        options={{ title: "User Group Profile" }}
+      />
+
       <Stack.Screen
         name="Group"
         component={GroupScreen}

@@ -40,7 +40,10 @@ export default function GroupScreen({ navigation, route }: any) {
           return (
             <Pressable
               onPress={() => {
-                navigation.navigate("User");
+                navigation.navigate("UserGroupProfile", {
+                  userId: user.id,
+                  groupId: item.groupId,
+                });
               }}
             >
               <Box
